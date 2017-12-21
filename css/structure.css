@@ -341,8 +341,6 @@ sub {
     -khtml-opacity: 0.3;
 
 
-    /*temp hide for review */
-    display:none;
 }
 
 .timeline,
