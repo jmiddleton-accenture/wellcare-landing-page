@@ -1747,7 +1747,7 @@ var VideoPlayerInterface = {
     getVisitData: function() {
         VideoPlayerInterface.RTCVisit = VideoPlayerInterface.iframeWindow.RTCVisit;
 //        VideoPlayerInterface.updatePreparedForName();
-        VideoPlayerInterface.updateBrandLogo();
+//        VideoPlayerInterface.updateBrandLogo();
     },
 
     /**
