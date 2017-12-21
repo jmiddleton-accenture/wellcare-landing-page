@@ -1721,7 +1721,7 @@ var VideoPlayerInterface = {
      */
 
      updateBrandLogo: function(){
-       var brandName = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
+       var brandName = this.RTCVisit.videoVisitData['company_name'];
        var logo = $('.footer__logo').attr({'src':'./images/logos/'+brandName+'.png'}).addClass(brandName);
      },
 
