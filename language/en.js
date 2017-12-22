@@ -43,33 +43,7 @@ var Translations = {
      *
      * "url" buttons will open the specified URL in a new window/tab when clicked
      */
-    "CtaButtonSettings": {
-        "button1": {
-            "card": "d1b4d742",
-            "label": "Contact",
-            "icon": "contact"
-        },
-        "button2": {
-            "card": "d1b4d742",
-            "label": "Website",
-            "icon": "website"
-        },
-        "button3": {
-            "card": "d1b4d742",
-            "label": "Email",
-            "icon": "email"
-        },
-        "button4": {
-            "card": "d1b4d742",
-            "label": "Save",
-            "icon": "save"
-        },
-        "button5": {
-            "url": "http://example.com/",
-            "label": "Share",
-            "icon": "share"
-        }
-    },
+    "CtaButtonSettings": {},
 
     /**
      * Settings for the promo graphic sections. By default only 2 promo areas can be defined.
@@ -80,22 +54,7 @@ var Translations = {
      * "desktopImage" the relative path to the promo image used on desktop breakpoints. This should be portrait.
      * "mobileImage" the relative path to the promo image used on mobile breakpoints. This should be landscape.
      */
-    "PromoSettings": {
-        "promo1": {
-            "trackingName": "promo1",
-            "url": "http://example.com/",
-            "label": "Promo (Top)",
-            "desktopImage": "./images/promo_portrait.png",
-            "mobileImage": "./images/promo_landscape.png"
-        },
-        "promo2": {
-            "trackingName": "promo2",
-            "url": "http://example.com/",
-            "label": "Promo (Bottom)",
-            "desktopImage": "./images/promo_portrait.png",
-            "mobileImage": "./images/promo_landscape.png"
-        }
-    },
+    "PromoSettings": {},
 
     /**
      * Chapter settings used to build the timeline and StateMap, which maps video states to friendly names.
@@ -111,30 +70,8 @@ var Translations = {
             "label": "Introduction",
             "states": [
                 {
-                    "cardId": "START",
-                    "width": 20
-                }
-            ]
-        },
-        {
-            "label": "Your Account",
-            "states": [
-                {
-                    "cardId": "77a834f0",
-                    "width": 20
-                },
-                {
-                    "cardId": "c23a68c9",
-                    "width": 20
-                }
-            ]
-        },
-        {
-            "label": "Thank You",
-            "states": [
-                {
-                    "cardId": "7b0123a5",
-                    "width": 40
+                    "cardId": "1c79f9bb",
+                    "width": 100
                 }
             ]
         }

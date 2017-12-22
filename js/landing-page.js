@@ -35,17 +35,17 @@ $(document).ready(function() {
     /**
      * Initialise the social icons with settings defined in settings.js
      */
-//    SocialIcons.initialise(socialIconSettings);
+    SocialIcons.initialise(socialIconSettings);
 
     /**
      * Initialise cta buttons with settings defined in settings.js
      */
-//    CtaButtons.initialise();
+    CtaButtons.initialise();
 
     /**
      * Initialise promos with settings defined in settings.js
      */
-//    Promos.initialise();
+    Promos.initialise();
 
     /**
      * Initialise volume slider
@@ -575,8 +575,8 @@ var LanguageSelector = {
 
     updateLanguage: function(langCode) {
         Timeline.render(LanguageSelector.currentLanguageObj.ChapterSettings);
-//        CtaButtons.render(LanguageSelector.currentLanguageObj.CtaButtonSettings);
-//        Promos.render(LanguageSelector.currentLanguageObj.PromoSettings);
+        CtaButtons.render(LanguageSelector.currentLanguageObj.CtaButtonSettings);
+        Promos.render(LanguageSelector.currentLanguageObj.PromoSettings);
 
         //Change the text of every .translate element to current language
         $(".translate").each(function () {
@@ -1826,13 +1826,13 @@ var VideoPlayerInterface = {
      */
     actions: {
         skipBack: function(currentState) {
-//            CtaButtons.closeAllSideCards();
+            CtaButtons.closeAllSideCards();
             VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.iframeWindow.rtc.player.controls.rewind();
         },
 
         play: function() {
-//            CtaButtons.closeAllSideCards();
+            CtaButtons.closeAllSideCards();
             VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.iframeWindow.rtc.player.controls.resume();
         },
@@ -1846,19 +1846,19 @@ var VideoPlayerInterface = {
         },
 
         skipForward: function(currentState) {
-  //          CtaButtons.closeAllSideCards();
+            CtaButtons.closeAllSideCards();
             VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.iframeWindow.rtc.player.controls.fastForward();
         },
 
         selectState: function(clickedState) {
-    //        CtaButtons.closeAllSideCards();
+            CtaButtons.closeAllSideCards();
             VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.iframeWindow.rtc.timeline.gotoState(clickedState);
         },
 
         timelinePosition: function(percentage) {
-      //      CtaButtons.closeAllSideCards();
+            CtaButtons.closeAllSideCards();
             VideoPlayerInterface.iframeWindow.$("#jquery_jplayer_videoplayer").jPlayer("playHead", percentage * 100);
         },
 
@@ -2186,7 +2186,7 @@ var iFrameEvents = {
         var $elem = $(VideoPlayerInterface.iframeWindow.$(element));
 
         if ($elem.length > 0) {
-//            CtaButtons.closeAllSideCards();
+            CtaButtons.closeAllSideCards();
             VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.actions.pause(false);
             Timeline.disableTimelineIfNecessary();
