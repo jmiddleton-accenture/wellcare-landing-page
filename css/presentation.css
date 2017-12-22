@@ -1341,12 +1341,12 @@
 
 .timeline-progress-hover{
   background: none;
-  background: rgba(9,71,156,0.5);
 }
 .timeline-progress{
   background:none;
 }
 .timeline-chapters:after,
+.timeline-progress-hover:after,
 .timeline-progress:after{
   content:'';
   position: absolute;
@@ -1356,9 +1356,15 @@
   left:0;
   margin-bottom:-3px;
 }
+.timeline-progress-hover:after{
+  background:rgba(0,187,223,0.75);
+}
 .timeline-progress:after{
-  background:orange;
+  background:rgb(0,187,223);
 }
 .timeline-chapters:after{
   background:rgba(219,219,219,0.17);
+}
+.timeline-volume__level{
+  color:#00bbdf
 }
