@@ -1722,7 +1722,9 @@ var VideoPlayerInterface = {
 
      updateBrandLogo: function(){
        var brandName = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
-       var logo = $('.footer__logo').attr({'src':'./images/logos/'+brandName+'.png'}).addClass(brandName);
+       if(brandName && !$('.footer__logo').hasClass("brandName")){
+         $('.footer__logo').attr({'src':'./images/logos/'+brandName+'.png'}).addClass(brandName);
+       }
      },
 
     updatePreparedForName: function() {
