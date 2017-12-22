@@ -1331,7 +1331,8 @@
 
 
 .timeline__buffer-section-inner{
-  background:#dbdbdb
+  background:none;
+  background:rgba(219,219,219,0.3);
 }
 .timeline-buffering{
   bottom:50%;
@@ -1340,18 +1341,24 @@
 
 .timeline-progress-hover{
   background: none;
-  background: rgba(9,71,156,0.3);
+  background: rgba(9,71,156,0.5);
 }
 .timeline-progress{
   background:none;
 }
+.timeline-chapters:after,
 .timeline-progress:after{
   content:'';
   position: absolute;
   width: 100%;
   height: 6px;
-  bottom:0;
+  bottom:50%;
   left:0;
   margin-bottom:-3px;
+}
+.timeline-progress:after{
   background:orange;
+}
+.timeline-chapters:after{
+  background:rgba(219,219,219,0.17);
 }
