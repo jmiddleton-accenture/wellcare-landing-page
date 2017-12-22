@@ -339,8 +339,6 @@ sub {
         filter: alpha(opacity=30); /* IE5-7 */
       -moz-opacity: 0.3;
     -khtml-opacity: 0.3;
-
-
 }
 
 .timeline,
