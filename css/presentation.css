@@ -1328,3 +1328,18 @@
   font-size:1.4em;
   color:#09479C;
 }
+
+
+.timeline__buffer-section-inner{
+  background:#dbdbdb
+}
+.timeline-buffering{
+  bottom:50%;
+  margin-bottom: -3px;
+}
+
+.timeline-progress-hover,
+.timeline-progress,
+.timeline-chapters{
+  display:none !important;
+}
