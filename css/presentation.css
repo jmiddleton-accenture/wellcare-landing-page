@@ -1338,8 +1338,10 @@
   margin-bottom: -3px;
 }
 
-.timeline-progress-hover,
-.timeline-progress,
-.timeline-chapters{
-  display:none !important;
+.timeline-progress-hover{
+  background: none;
+  background: rgba(9,71,156,0.3);
+}
+.timeline-progress{
+  background:none;
 }
