@@ -48,8 +48,14 @@
 
 /** Main Styling (for 1080p) **/
 .body {
-    background-color: #00bbdf;
-    font-family: "OpenSans_Regular", Arial;
+    background-color:white;
+    font-family: "Agenda", "OpenSans_Regular", Arial;
+}
+.body.orange {
+  background-color: #e97a3a;
+}
+.body.blue {
+  background-color: #00bbdf;
 }
 
 .main{

@@ -1725,6 +1725,12 @@ var VideoPlayerInterface = {
        if(brandName && !$('.footer__logo').hasClass("brandName")){
          $('.footer__logo').attr({'src':'./images/logos/'+brandName+'.png'}).addClass(brandName);
        }
+       if(brandName=="wellcare"){
+         jQuery(".body").addClass("orange");
+       }
+       else{
+         jQuery(".body").addClass("blue");         
+       }
      },
 
     updatePreparedForName: function() {
