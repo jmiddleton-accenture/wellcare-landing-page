@@ -75,3 +75,9 @@ var timelineSettings = {
  * "languages" sets the languages available for use on the landing page. Within each language object, the key should match
  *    the name of the corresponding language file. And the value will be displayed on the language selection menu.
  */
+var languageSettings = {
+    "defaultLanguage": "en",
+    "languages": {
+        "en": "English (EN)"
+    }
+};
