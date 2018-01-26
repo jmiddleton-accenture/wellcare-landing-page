@@ -595,11 +595,11 @@
 .timeline__settings-language,
 .timeline__settings-cc {
     position: absolute;
-    top: -209px;
+    top: -139px;
     right: 340px;
     padding: 16px;
     width: 220px;
-    height: 210px;
+    height: 140px;
     background-color: #2e2e2e;
     font-size: 17px;
 }
@@ -935,10 +935,10 @@
     .timeline__settings-quality,
     .timeline__settings-language,
     .timeline__settings-cc {
-        top: -180px;
-        right: 150px;
+        top: -120px;
+        right: 120px;
         padding: 13px;
-        height: 180px;
+        height: 120px;
         width: 200px;
         font-size: 15px;
     }
