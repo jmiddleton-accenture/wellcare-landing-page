@@ -1364,6 +1364,7 @@
 }
 .timeline-chapters:after{
   background:rgba(219,219,219,0.17);
+  margin-top:-6px;
 }
 .timeline-volume__level{
   color:#00bbdf
