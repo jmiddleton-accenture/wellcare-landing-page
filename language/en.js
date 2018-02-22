@@ -67,13 +67,76 @@ var Translations = {
      */
     "ChapterSettings": [
         {
-            "label": "X ",
+            "label": "Welcome",
             "states": [
                 {
                     "cardId": "1c79f9bb",
-                    "width": 100
+                    "width": 10
                 }
             ]
-        }
+        },
+        {
+            "label": "ID Card",
+            "states": [
+                {
+                    "cardId": "1c79f9bb",
+                    "width": 15
+                }
+            ]
+        },
+        {
+            "label": "PCP",
+            "states": [
+                {
+                    "cardId": "1c79f9bb",
+                    "width": 15
+                }
+            ]
+        },
+        {
+            "label": "Urgent Care",
+            "states": [
+                {
+                    "cardId": "1c79f9bb",
+                    "width": 15
+                }
+            ]
+        },
+        {
+            "label": "Co Pay",
+            "states": [
+                {
+                    "cardId": "1c79f9bb",
+                    "width": 15
+                }
+            ]
+        },
+        {
+            "label": "Benefits",
+            "states": [
+                {
+                    "cardId": "1c79f9bb",
+                    "width": 10
+                }
+            ]
+        },
+        {
+            "label": "Portal",
+            "states": [
+                {
+                    "cardId": "1c79f9bb",
+                    "width": 10
+                }
+            ]
+        },
+        {
+            "label": "HRA",
+            "states": [
+                {
+                    "cardId": "1c79f9bb",
+                    "width": 10
+                }
+            ]
+        },
     ]
 }

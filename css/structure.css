@@ -479,7 +479,7 @@ sub {
 .timeline-chapters {
     position: relative;
     z-index: 30;
-    height: 100%;
+    height: calc(100% - 6px);
     line-height: 80px;
     text-align: center;
 }
