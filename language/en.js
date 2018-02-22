@@ -70,7 +70,7 @@ var Translations = {
             "label": "Hello",
             "states": [
                 {
-                    "cardId": "1c79f9bb",
+                    "cardId": "START",
                     "width": 10
                 }
             ]
@@ -79,7 +79,7 @@ var Translations = {
             "label": "ID Card",
             "states": [
                 {
-                    "cardId": "1c79f9bb",
+                    "cardId": "2bc48882",
                     "width": 15
                 }
             ]
@@ -88,7 +88,7 @@ var Translations = {
             "label": "PCP",
             "states": [
                 {
-                    "cardId": "1c79f9bb",
+                    "cardId": "8a4bbb43",
                     "width": 15
                 }
             ]
@@ -97,7 +97,7 @@ var Translations = {
             "label": "Urgent Care",
             "states": [
                 {
-                    "cardId": "1c79f9bb",
+                    "cardId": "835c2824",
                     "width": 15
                 }
             ]
@@ -106,7 +106,7 @@ var Translations = {
             "label": "Co Pay",
             "states": [
                 {
-                    "cardId": "1c79f9bb",
+                    "cardId": "73c8fd3b",
                     "width": 15
                 }
             ]
@@ -115,7 +115,7 @@ var Translations = {
             "label": "Benefits",
             "states": [
                 {
-                    "cardId": "1c79f9bb",
+                    "cardId": "2a42642f",
                     "width": 10
                 }
             ]
@@ -124,7 +124,7 @@ var Translations = {
             "label": "Portal",
             "states": [
                 {
-                    "cardId": "1c79f9bb",
+                    "cardId": "76b093bf",
                     "width": 10
                 }
             ]
@@ -133,7 +133,7 @@ var Translations = {
             "label": "HRA",
             "states": [
                 {
-                    "cardId": "1c79f9bb",
+                    "cardId": "242a8aa5",
                     "width": 10
                 }
             ]
