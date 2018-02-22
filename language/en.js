@@ -67,7 +67,7 @@ var Translations = {
      */
     "ChapterSettings": [
         {
-            "label": "Welcome",
+            "label": "Hello",
             "states": [
                 {
                     "cardId": "1c79f9bb",
