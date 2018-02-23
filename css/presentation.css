@@ -984,6 +984,10 @@
 
 /** 360p **/
 @media screen and (max-width: 1230px) {
+
+    .timeline-chapters__label{
+      font-size: 10px;
+    }
     .social--top .social__icon {
         width: 26px;
         height: 26px;

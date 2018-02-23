@@ -103,7 +103,7 @@ var Translations = {
             ]
         },
         {
-            "label": "Co Pay",
+            "label": "Cost Share",
             "states": [
                 {
                     "cardId": "73c8fd3b",
