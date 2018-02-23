@@ -982,6 +982,12 @@
     }
 }
 
+.timeline-chapters__label{
+  white-space: normal;
+  line-height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+}
 /** 360p **/
 @media screen and (max-width: 1230px) {
 
