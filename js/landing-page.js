@@ -28,7 +28,7 @@ else if(url.indexOf("prod")>-1){
 
 document.title = document.title + " | " + brandNameProper;
 
-if(!$('jsFooterLogo').hasClass("preprod") && !$('jsFooterLogo').hasClass("production")){
+if(!$('#jsFooterLogo').hasClass("preprod") && !$('#jsFooterLogo').hasClass("production")){
 
   if(brandName && !$("#jsFooterLogo").hasClass("brandName")){
     $("#jsFooterLogo").attr({"src":"./images/logos/"+brandName+".png"}).addClass(brandName);
@@ -1767,8 +1767,8 @@ var VideoPlayerInterface = {
 
      updateBrandLogo: function(){
        var brandNameL = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
-       if(brandNameL && !$('jsFooterLogo').hasClass("brandName")){
-         $('jsFooterLogo').attr({'src':'./images/logos/'+brandNameL+'.png'}).addClass(brandNameL);
+       if(brandNameL && !$('#jsFooterLogo').hasClass("brandName")){
+         $('#jsFooterLogo').attr({'src':'./images/logos/'+brandNameL+'.png'}).addClass(brandNameL);
        }
        if(brandNameL=="wellcare"){
          jQuery(".body").addClass("orange");
@@ -1800,7 +1800,7 @@ var VideoPlayerInterface = {
     getVisitData: function() {
         VideoPlayerInterface.RTCVisit = VideoPlayerInterface.iframeWindow.RTCVisit;
 //        VideoPlayerInterface.updatePreparedForName();
-      if($('jsFooterLogo').hasClass("preprod") || $('jsFooterLogo').hasClass("production")){
+      if($('#jsFooterLogo').hasClass("preprod") || $('#jsFooterLogo').hasClass("production")){
         VideoPlayerInterface.updateBrandLogo();
       }
     },
