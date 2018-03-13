@@ -1,3 +1,31 @@
+var url = window.location.hostname;
+var brandName = "";
+
+if(url.indexOf("ohana")>-1){
+  brandName = "ohana";
+  brandNameProper = "Ohana";
+}
+else if(url.indexOf("missouri")>-1){
+  brandName = "missouricare";
+  brandNameProper = "Missouri Care";
+}
+else if(url.indexOf("easychoice")>-1){
+  brandName = "easychoice";
+  brandNameProper = "Easy Choice";
+}
+else if(url.indexOf("wellcare")>-1){
+  brandName = "wellcare";
+  brandNameProper = "WellCare";
+}
+else if(url.indexOf("preprod")>-1){
+  brandName = "preprod";
+  brandNameProper = "Preprod";
+}
+
+document.title = document.title + " | " + brandNameProper;
+
+
+
 function isInArray(value, array) {
     return array.indexOf(value) > -1;
 }
@@ -1721,15 +1749,15 @@ var VideoPlayerInterface = {
      */
 
      updateBrandLogo: function(){
-       var brandName = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
-       if(brandName && !$('.footer__logo').hasClass("brandName")){
-         $('.footer__logo').attr({'src':'./images/logos/'+brandName+'.png'}).addClass(brandName);
+       var brandNameL = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
+       if(brandNameL && !$('.footer__logo').hasClass("brandName")){
+         $('.footer__logo').attr({'src':'./images/logos/'+brandNameL+'.png'}).addClass(brandNameL);
        }
-       if(brandName=="wellcare"){
+       if(brandNameL=="wellcare"){
          jQuery(".body").addClass("orange");
        }
        else{
-         jQuery(".body").addClass("blue");         
+         jQuery(".body").addClass("blue");
        }
      },
 

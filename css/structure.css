@@ -1056,7 +1056,7 @@ sub {
         top: 0;
         left: 0;
         width: 100%;
-        height: 10px;
+        height: 0;
     }
 
     .timeline--no-volume .timeline__controls--center {
@@ -1069,7 +1069,7 @@ sub {
     }
 
     .timeline-buffering {
-        height: 10px;
+        height: 6px;
     }
 
     .timeline-progress-hover,
