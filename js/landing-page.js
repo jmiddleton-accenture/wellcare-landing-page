@@ -1771,14 +1771,22 @@ var VideoPlayerInterface = {
 
      updateBrandLogo: function(){
        var brandNameL = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
-       if(brandNameL && !$('#jsFooterLogo').hasClass("brandName")){
-         $('#jsFooterLogo').attr({'src':'./images/logos/'+brandNameL+'.png'}).addClass(brandNameL);
-       }
-       if(brandNameL=="wellcare"){
-         jQuery(".body").addClass("orange");
-       }
-       else{
-         jQuery(".body").addClass("blue");
+
+       if(brandNameL){
+         $("#jsFooterLogo").addClass(brandNameL);
+
+         var imageL = new Image();
+         imageL.onload = function () {
+           $("#jsFooterLogo").attr({"src":"./images/logos/"+brandNameL+".png"});
+         }
+         imageL.src = "./images/logos/"+brandNameL+".png";
+
+         if(brandNameL=="wellcare"){
+           $(".body").addClass("orange");
+         }
+         else{
+           $(".body").addClass("blue");
+         }
        }
      },
 
