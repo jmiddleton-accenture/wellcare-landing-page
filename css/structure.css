@@ -38,7 +38,7 @@ sub {
     margin: 0 auto;
 }
 
-#footer__logo {
+.footer__logo {
     max-width: 100%;
     max-height:170px;
     padding:20px 10px;
@@ -46,8 +46,8 @@ sub {
     vertical-align: middle;
   }
 
-#footer__logo.wellcare,
-#footer__logo.missouricare{
+.footer__logo.wellcare,
+.footer__logo.missouricare{
     max-height: 120px
 }
 
