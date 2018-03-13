@@ -21,9 +21,26 @@ else if(url.indexOf("preprod")>-1){
   brandName = "preprod";
   brandNameProper = "Preprod";
 }
+else if(url.indexOf("prod")>-1){
+  brandName = "production";
+  brandNameProper = "Production";
+}
 
 document.title = document.title + " | " + brandNameProper;
 
+if(!$('.footer__logo').hasClass("preprod") && !$('.footer__logo').hasClass("production")){
+
+  if(brandName && !$(".footer__logo").hasClass("brandName")){
+    $(".footer__logo").attr({"src":"./images/logos/"+brandName+".png"}).addClass(brandName);
+  }
+  if(brandName=="wellcare"){
+    $(".body").addClass("orange");
+  }
+  else{
+    $(".body").addClass("blue");
+  }
+
+}
 
 
 function isInArray(value, array) {
@@ -1783,7 +1800,9 @@ var VideoPlayerInterface = {
     getVisitData: function() {
         VideoPlayerInterface.RTCVisit = VideoPlayerInterface.iframeWindow.RTCVisit;
 //        VideoPlayerInterface.updatePreparedForName();
+      if($('.footer__logo').hasClass("preprod") || $('.footer__logo').hasClass("production")){
         VideoPlayerInterface.updateBrandLogo();
+      }
     },
 
     /**
