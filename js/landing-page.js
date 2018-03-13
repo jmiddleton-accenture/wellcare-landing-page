@@ -28,21 +28,22 @@ else if(url.indexOf("prod")>-1){
 
 document.title = document.title + " | " + brandNameProper;
 
-if(brandName=="preprod" || brandName=="production"){
+
+if(brandName){
   $("#jsFooterLogo").addClass(brandName);
-}
-else{
-  if(brandName){
-    $("#jsFooterLogo").attr({"src":"./images/logos/"+brandName+".png"}).addClass(brandName);
+
+  var image = new Image();
+  image.onload = function () {
+    $("#jsFooterLogo").attr({"src":"./images/logos/"+brandName+".png"});
   }
-  
+  image.src = "./images/logos/"+brandName+".png";
+
   if(brandName=="wellcare"){
     $(".body").addClass("orange");
   }
   else{
     $(".body").addClass("blue");
   }
-
 }
 
 
