@@ -1072,6 +1072,11 @@ sub {
         height: 10px;
     }
 
+    .timeline-chapters{
+      height: 100%;
+      margin-top: 0;
+    }
+
     .timeline-progress-hover,
     .timeline-chapters__chapter > .timeline-chapters__label {
         display: none;

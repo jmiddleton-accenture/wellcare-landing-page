@@ -1379,3 +1379,19 @@
 .timeline-volume__level{
   color:#00bbdf
 }
+
+
+/** Mobile devices **/
+@media screen and (max-width: 820px) {
+  .timeline-chapters:after,
+  .timeline-progress-hover:after,
+  .timeline-progress:after{
+    height: 10px;
+    margin-top:0;
+  }
+
+  .timeline-chapters__chapter,
+  .fullscreen .timeline-chapters__chapter{
+      border-right-color: #09479C;
+  }
+}
