@@ -1377,11 +1377,10 @@
   margin-top:-6px;
 }
 .timeline-volume__level{
-  color:#00bbdf
+  color:#00bbdf;
 }
 
 
-/** Mobile devices **/
 @media screen and (max-width: 820px) {
   .timeline-chapters:after,
   .timeline-progress-hover:after,
@@ -1392,6 +1391,6 @@
 
   .timeline-chapters__chapter,
   .fullscreen .timeline-chapters__chapter{
-      border-right-color: #09479C;
+      border-right: none;
   }
 }
