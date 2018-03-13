@@ -28,7 +28,7 @@ else if(url.indexOf("prod")>-1){
 
 document.title = document.title + " | " + brandNameProper;
 
-if(!$('#jsFooterLogo').hasClass("preprod") && !$('#jsFooterLogo').hasClass("production")){
+if(brandName!="preprod" && brandName!="production"){
 
   if(brandName && !$("#jsFooterLogo").hasClass("brandName")){
     $("#jsFooterLogo").attr({"src":"./images/logos/"+brandName+".png"}).addClass(brandName);
