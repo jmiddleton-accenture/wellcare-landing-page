@@ -1674,6 +1674,8 @@ var VideoPlayerInterface = {
 
     firstRun: true,
 
+    authorized: false;
+
     /**
      * Initialise the video player interface.
      * This class is a proxy that handles all interaction with the video player itself
@@ -1771,7 +1773,7 @@ var VideoPlayerInterface = {
     },
 
     /**
-     * Gets the name property from data-dict-name. Updates prepared for text with name if exists
+     * Gets the name property from data-dictionary. Only needed when on a non-branded URL
      */
 
      updateBrandLogo: function(){
@@ -1794,6 +1796,17 @@ var VideoPlayerInterface = {
          }
        }
      },
+
+    checkAutoplayAfterAuthorization: function(){
+      if(VideoPlayerInterface.authorized != VideoPlayerInterface.RTCVisit.videoVisitData['authorized']){
+        VideoPlayerInterface.authorized = VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
+        setTimeout(function(){
+          if (!VideoPlayerInterface.isPlaying && VideoPlayerInterface.authorized == true) {
+              VideoPlayerInterface.actions.play();
+          }
+        },700);
+      }
+    }
 
     updatePreparedForName: function() {
         var preparedForText = LanguageSelector.getTextByKey("PreparedForText");
@@ -1819,6 +1832,9 @@ var VideoPlayerInterface = {
 //        VideoPlayerInterface.updatePreparedForName();
       if($('#jsFooterLogo').hasClass("preprod") || $('#jsFooterLogo').hasClass("production")){
         VideoPlayerInterface.updateBrandLogo();
+      }
+      if(VideoPlayerInterface.authorized == false){
+        VideoPlayerInterface.checkAutoplayAfterAuthorization();
       }
     },
 
