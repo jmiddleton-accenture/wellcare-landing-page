@@ -1674,7 +1674,7 @@ var VideoPlayerInterface = {
 
     firstRun: true,
 
-    authorized: false;
+    authorized: false,
 
     /**
      * Initialise the video player interface.
