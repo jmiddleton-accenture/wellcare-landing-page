@@ -1837,7 +1837,7 @@ var VideoPlayerInterface = {
       if(VideoPlayerInterface.authorized == false){
         VideoPlayerInterface.checkAutoplayAfterAuthorization();
       }
-      console.log(VideoPlayerInterface.authorized +''+ VideoPlayerInterface.RTCVisit.videoVisitData['authorized']);
+      console.log(VideoPlayerInterface.isPlaying +' '+ VideoPlayerInterface.RTCVisit.videoVisitData['authorized']);
     },
 
     /**
