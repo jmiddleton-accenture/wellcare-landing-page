@@ -1835,7 +1835,7 @@ var VideoPlayerInterface = {
       if($('#jsFooterLogo').hasClass("preprod") || $('#jsFooterLogo').hasClass("production")){
         VideoPlayerInterface.updateBrandLogo();
       }
-      if(unauthorized){
+      if(unauthorized && VideoPlayerInterface.currentState =="62d57b2a"){
         VideoPlayerInterface.checkAutoplayAfterAuthorization();
       }
       console.log('x(un-) '+unauthorized + ' y ' + VideoPlayerInterface.RTCVisit.videoVisitData['authorized'] +' z '+VideoPlayerInterface.isPlaying + ' q ' + VideoPlayerInterface.currentState);
