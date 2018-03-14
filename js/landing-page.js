@@ -1718,7 +1718,6 @@ var VideoPlayerInterface = {
                 // Update state and timeline position
                 VideoPlayerInterface.isSourceSet = VideoPlayerInterface.getSourceSet();
                 VideoPlayerInterface.getStates();
-                console.log("currentstate: "+VideoPlayerInterface.currentState);
                 var times = VideoPlayerInterface.iframeWindow.rtc.player.getVideoTimes();
                 Timeline.updateStateAndProgress(
                     VideoPlayerInterface.currentState,
