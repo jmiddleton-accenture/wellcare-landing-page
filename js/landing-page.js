@@ -1838,7 +1838,7 @@ var VideoPlayerInterface = {
       if(unauthorized && VideoPlayerInterface.currentState =="62d57b2a"){
         VideoPlayerInterface.checkAutoplayAfterAuthorization();
       }
-      console.log('x(un-) '+unauthorized + ' y ' + VideoPlayerInterface.RTCVisit.videoVisitData['authorized'] +' z '+VideoPlayerInterface.isPlaying + ' q ' + VideoPlayerInterface.currentState + ' d ' + Date.now() + ' s ';
+      console.log('x(un-) '+unauthorized + ' y ' + VideoPlayerInterface.RTCVisit.videoVisitData['authorized'] +' z '+VideoPlayerInterface.isPlaying + ' q ' + VideoPlayerInterface.currentState + ' d ' + Date.now() + ' s ');
     },
 
     /**
