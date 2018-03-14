@@ -1801,12 +1801,12 @@ var VideoPlayerInterface = {
       if(unauthorized == VideoPlayerInterface.RTCVisit.videoVisitData['authorized']){
         unauthorized = !VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
         setTimeout(function(){
-          console.log('2000');
+          console.log('4000');
           if (!VideoPlayerInterface.isPlaying && unauthorized != true) {
               VideoPlayerInterface.actions.play();
               console.log("PLAYYYYYYYYYYYYYYYYY");
           }
-        },2000);
+        },4000);
       }
     },
 
@@ -1838,7 +1838,7 @@ var VideoPlayerInterface = {
       if(unauthorized && VideoPlayerInterface.currentState =="62d57b2a"){
         VideoPlayerInterface.checkAutoplayAfterAuthorization();
       }
-      console.log('x(un-) '+unauthorized + ' y ' + VideoPlayerInterface.RTCVisit.videoVisitData['authorized'] +' z '+VideoPlayerInterface.isPlaying + ' q ' + VideoPlayerInterface.currentState);
+      console.log('x(un-) '+unauthorized + ' y ' + VideoPlayerInterface.RTCVisit.videoVisitData['authorized'] +' z '+VideoPlayerInterface.isPlaying + ' q ' + VideoPlayerInterface.currentState) + ' ' + Date.now();
     },
 
     /**
