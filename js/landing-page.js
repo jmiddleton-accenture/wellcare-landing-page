@@ -1398,6 +1398,8 @@ var Timeline = {
 
         var customErrorOpen = VideoPlayerInterface.iframeWindow.rtc.card.isFailoverMessageVisible();
         var stateTimelineElem = Timeline.getStateElementByName(state);
+        console.log("stateTimelineElem").
+        console.log(stateTimelineElem);
         var totalTimelinePercent = (parseFloat(stateTimelineElem.data('percent-start')) + (parseFloat(stateTimelineElem.data('percent-width')) * progress)) / 100;
         Timeline.setProgress(totalTimelinePercent);
         Timeline.updateMobileActiveState(stateTimelineElem);
@@ -1713,6 +1715,7 @@ var VideoPlayerInterface = {
                 // Update state and timeline position
                 VideoPlayerInterface.isSourceSet = VideoPlayerInterface.getSourceSet();
                 VideoPlayerInterface.getStates();
+                console.log("currentstate: "+VideoPlayerInterface.currentState);
                 var times = VideoPlayerInterface.iframeWindow.rtc.player.getVideoTimes();
                 Timeline.updateStateAndProgress(
                     VideoPlayerInterface.currentState,
