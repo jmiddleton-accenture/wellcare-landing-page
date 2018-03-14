@@ -1801,12 +1801,12 @@ var VideoPlayerInterface = {
       if(unauthorized == VideoPlayerInterface.RTCVisit.videoVisitData['authorized']){
         unauthorized = !VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
         setTimeout(function(){
-          console.log('700');
+          console.log('2000');
           if (!VideoPlayerInterface.isPlaying && unauthorized != true) {
               VideoPlayerInterface.actions.play();
               console.log("PLAYYYYYYYYYYYYYYYYY");
           }
-        },700);
+        },2000);
       }
     },
 
