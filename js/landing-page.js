@@ -1,6 +1,6 @@
 var url = window.location.hostname;
 var brandName = "";
-var authorized = true;
+var authorized = new Boolean(false);
 
 
 if(url.indexOf("ohana")>-1){
