@@ -1772,7 +1772,7 @@ var VideoPlayerInterface = {
      updateBrandLogo: function(){
        var brandNameL = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
 
-       if(brandNameL){
+       if(brandNameL && !$("#jsFooterLogo").hasClass(brandNameL)){
          $("#jsFooterLogo").addClass(brandNameL);
 
          var imageL = new Image();
