@@ -1,6 +1,6 @@
 var url = window.location.hostname;
 var brandName = "";
-var authorized = new Boolean(false);
+var unauthorized = true;
 
 
 if(url.indexOf("ohana")>-1){
@@ -1798,10 +1798,11 @@ var VideoPlayerInterface = {
      },
 
     checkAutoplayAfterAuthorization: function(){
-      if(authorized != VideoPlayerInterface.RTCVisit.videoVisitData['authorized']){
-        authorized = VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
+      if(unauthorized == VideoPlayerInterface.RTCVisit.videoVisitData['authorized']){
+        unauthorized = !VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
         setTimeout(function(){
-          if (!VideoPlayerInterface.isPlaying && authorized == true) {
+          console.log('700')l
+          if (!VideoPlayerInterface.isPlaying && unauthorized != true) {
               VideoPlayerInterface.actions.play();
               console.log("PLAYYYYYYYYYYYYYYYYY");
           }
@@ -1834,10 +1835,10 @@ var VideoPlayerInterface = {
       if($('#jsFooterLogo').hasClass("preprod") || $('#jsFooterLogo').hasClass("production")){
         VideoPlayerInterface.updateBrandLogo();
       }
-      if(authorized == false){
+      if(unauthorized){
         VideoPlayerInterface.checkAutoplayAfterAuthorization();
       }
-      console.log('x '+authorized + ' y ' +VideoPlayerInterface.isPlaying +' z '+ VideoPlayerInterface.RTCVisit.videoVisitData['authorized']);
+      console.log('x(un-) '+unauthorized + ' y ' + VideoPlayerInterface.RTCVisit.videoVisitData['authorized'] +' z '+VideoPlayerInterface.isPlaying);
     },
 
     /**
