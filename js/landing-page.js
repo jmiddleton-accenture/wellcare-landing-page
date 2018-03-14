@@ -1398,9 +1398,12 @@ var Timeline = {
 
         var customErrorOpen = VideoPlayerInterface.iframeWindow.rtc.card.isFailoverMessageVisible();
         var stateTimelineElem = Timeline.getStateElementByName(state);
-        console.log("stateTimelineElem");
-        console.log(stateTimelineElem);
-        var totalTimelinePercent = (parseFloat(stateTimelineElem.data('percent-start')) + (parseFloat(stateTimelineElem.data('percent-width')) * progress)) / 100;
+        if(stateTimelineElem){
+          var totalTimelinePercent = (parseFloat(stateTimelineElem.data('percent-start')) + (parseFloat(stateTimelineElem.data('percent-width')) * progress)) / 100;
+        }
+        else{
+          var totalTimelinePercent = null;
+        }
         Timeline.setProgress(totalTimelinePercent);
         Timeline.updateMobileActiveState(stateTimelineElem);
 
