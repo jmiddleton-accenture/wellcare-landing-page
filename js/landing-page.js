@@ -1806,7 +1806,7 @@ var VideoPlayerInterface = {
           }
         },700);
       }
-    }
+    },
 
     updatePreparedForName: function() {
         var preparedForText = LanguageSelector.getTextByKey("PreparedForText");
