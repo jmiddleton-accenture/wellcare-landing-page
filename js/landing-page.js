@@ -1803,6 +1803,7 @@ var VideoPlayerInterface = {
         setTimeout(function(){
           if (!VideoPlayerInterface.isPlaying && VideoPlayerInterface.authorized == true) {
               VideoPlayerInterface.actions.play();
+              console.log("PLAYYYYYYYYYYYYYYYYY");
           }
         },700);
       }
@@ -1836,6 +1837,7 @@ var VideoPlayerInterface = {
       if(VideoPlayerInterface.authorized == false){
         VideoPlayerInterface.checkAutoplayAfterAuthorization();
       }
+      console.log(VideoPlayerInterface.authorized);
     },
 
     /**
