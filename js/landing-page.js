@@ -1,5 +1,7 @@
 var url = window.location.hostname;
 var brandName = "";
+var authorized: true,
+
 
 if(url.indexOf("ohana")>-1){
   brandName = "ohana";
@@ -1674,8 +1676,6 @@ var VideoPlayerInterface = {
 
     firstRun: true,
 
-    authorized: false,
-
     /**
      * Initialise the video player interface.
      * This class is a proxy that handles all interaction with the video player itself
@@ -1798,10 +1798,10 @@ var VideoPlayerInterface = {
      },
 
     checkAutoplayAfterAuthorization: function(){
-      if(VideoPlayerInterface.authorized != VideoPlayerInterface.RTCVisit.videoVisitData['authorized']){
-        VideoPlayerInterface.authorized = VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
+      if(authorized != VideoPlayerInterface.RTCVisit.videoVisitData['authorized']){
+        authorized = VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
         setTimeout(function(){
-          if (!VideoPlayerInterface.isPlaying && VideoPlayerInterface.authorized == true) {
+          if (!VideoPlayerInterface.isPlaying && authorized == true) {
               VideoPlayerInterface.actions.play();
               console.log("PLAYYYYYYYYYYYYYYYYY");
           }
@@ -1834,7 +1834,7 @@ var VideoPlayerInterface = {
       if($('#jsFooterLogo').hasClass("preprod") || $('#jsFooterLogo').hasClass("production")){
         VideoPlayerInterface.updateBrandLogo();
       }
-      if(VideoPlayerInterface.authorized == false){
+      if(authorized == false){
         VideoPlayerInterface.checkAutoplayAfterAuthorization();
       }
       console.log(VideoPlayerInterface.isPlaying +' '+ VideoPlayerInterface.RTCVisit.videoVisitData['authorized']);
