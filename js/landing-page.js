@@ -1683,6 +1683,7 @@ var VideoPlayerInterface = {
     initialise: function() {
         try {
             VideoPlayerInterface.iframeWindow = document.getElementById("videoPlayerIframe").contentWindow;
+            VideoPlayerInterface.removeCapsFromPurl();
             VideoPlayerInterface.updateFromVideo();
             VideoPlayerInterface.updateInterval = setInterval(function() {
                 VideoPlayerInterface.updateFromVideo();
