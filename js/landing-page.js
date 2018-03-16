@@ -1818,7 +1818,7 @@ var VideoPlayerInterface = {
       if (document.getElementById('videoPlayerIframe') != null) {
           var videoUrl = document.getElementById('videoPlayerIframe').src;
 
-          if(purlmatch = videoUrl.match( /&uid=(.*?)&/ ) && purlmatch[1].toLowerCase() !== purlmatch[1]){
+          if(var purlmatch = videoUrl.match( /&uid=(.*?)&/ ) && purlmatch[1].toLowerCase() !== purlmatch[1]){
             document.getElementById('videoPlayerIframe').src = videoUrl.replace( /&uid=(.*?)&/, "&uid="+purlmatch[1].toLowerCase()+"&" );
           }
       }
