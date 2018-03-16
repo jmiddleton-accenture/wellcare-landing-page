@@ -1683,7 +1683,7 @@ var VideoPlayerInterface = {
     initialise: function() {
         try {
             VideoPlayerInterface.iframeWindow = document.getElementById("videoPlayerIframe").contentWindow;
-            VideoPlayerInterface.removeCapsFromPurl();
+    //        VideoPlayerInterface.removeCapsFromPurl();
             VideoPlayerInterface.updateFromVideo();
             VideoPlayerInterface.updateInterval = setInterval(function() {
                 VideoPlayerInterface.updateFromVideo();
@@ -1811,7 +1811,7 @@ var VideoPlayerInterface = {
       }
     },
 
-
+/*
     removeCapsFromPurl: function(){
       console.log("removeCapsFromPurl");
 
@@ -1824,7 +1824,7 @@ var VideoPlayerInterface = {
       }
 
     },
-
+*/
     updatePreparedForName: function() {
         var preparedForText = LanguageSelector.getTextByKey("PreparedForText");
         var nameProperty = $("#jsPreparedForName").data("dict-name");
