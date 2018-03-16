@@ -1813,6 +1813,7 @@ var VideoPlayerInterface = {
 
 
     removeCapsFromPurl: function(){
+      console.log("removeCapsFromPurl");
 
       if (document.getElementById('videoPlayerIframe') != null) {
           var videoUrl = document.getElementById('videoPlayerIframe').src;
