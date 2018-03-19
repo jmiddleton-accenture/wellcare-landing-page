@@ -1582,6 +1582,7 @@ var Timeline = {
                 var timeline_width = $('#jsTimelineContainer').width();
                 Timeline.setProgress((e.pageX - $('#jsTimelineProgress').offset().left) / timeline_width);
                 Timeline.updateInVideo();
+                console.log(Timeline.getStateFromProgress());
             }
         },
 
