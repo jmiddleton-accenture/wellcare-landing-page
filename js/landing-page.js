@@ -1311,7 +1311,7 @@ var Timeline = {
 
             chapter.append(label);
             container.append(chapter);
-            chapter.on("click",console.log("click event active"));
+            chapter.on("click",function(){console.log("click event active");});
         });
 
         BufferStatus.initBuffer();
