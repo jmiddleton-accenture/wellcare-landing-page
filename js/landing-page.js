@@ -28,10 +28,10 @@ else if(url.indexOf("prod")>-1){
   brandNameProper = "Production";
 }
 
-document.title = document.title + " | " + brandNameProper;
-
 
 if(brandName){
+  document.title = document.title + " | " + brandNameProper;
+
   $("#jsFooterLogo").addClass(brandName);
 
   var image = new Image();
