@@ -1804,6 +1804,7 @@ var VideoPlayerInterface = {
         unauthorized = !VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
         setTimeout(function(){
           console.log('2k');
+          console.log(VideoPlayerInterface.iframeWindow.rtc.player.vars);
           if (!VideoPlayerInterface.isPlaying && unauthorized != true) {
               VideoPlayerInterface.actions.play();
               console.log("PLAYYYYYYYYYYYYYYYYY");
