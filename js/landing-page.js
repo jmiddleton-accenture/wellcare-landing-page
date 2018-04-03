@@ -259,6 +259,7 @@ var ClosedCaptionSelector = {
     setClosedCaptions: function(value){
         var captionsOn = VideoPlayerInterface.iframeWindow.rtc.player.vars.showCaptions;
         if (value === 'on' && !captionsOn) {
+            VideoPlayerInterface.iframeWindow.rtc.utils.track("cc-shown");
             VideoPlayerInterface.iframeWindow.rtc.player.toggleCC();
             $('#jsCCOnTick').show();
             $('#jsCCOffTick').hide();
@@ -382,9 +383,10 @@ var KeyboardInputController = {
                             VideoPlayerInterface.iframeWindow.rtc.player.controls.resume();
                         } else {
                             VideoPlayerInterface.iframeWindow.rtc.player.controls.pause();
+                            VideoPlayerInterface.iframeWindow.rtc.utils.track("scenepaused");
                         }
 
-                        VideoPlayerInterface.iframeWindow.rtc.utils.track("keyboard.spacebar");
+                        "keyboard.spacebar");
                         break;
                     //Left and right arrow keys
                     case 37:
@@ -398,17 +400,21 @@ var KeyboardInputController = {
                         if(currentDate.getTime() > keyStart[e.keyCode].getTime() + 500) {
                             if(VideoPlayerInterface.iframeWindow.rtc.player.vars.videoDuration !== 0 && VideoPlayerInterface.iframeWindow.rtc.player.vars.videoDuration < 10) {
                                 if(e.keyCode == 37) {
+                                    VideoPlayerInterface.iframeWindow.rtc.utils.track('scene-restart');
                                     VideoPlayerInterface.iframeWindow.rtc.player.skipPrevious();
                                     VideoPlayerInterface.iframeWindow.rtc.utils.track("keyboard.skip-previous");
                                 } else {
+                                  VideoPlayerInterface.iframeWindow.rtc.utils.track('scene-skip');
                                     VideoPlayerInterface.iframeWindow.rtc.player.skipNext();
                                     VideoPlayerInterface.iframeWindow.rtc.utils.track("keyboard.skip-next");
                                 }
                             } else if(VideoPlayerInterface.iframeWindow.rtc.player.vars.videoDuration !== 0) {
                                 if(e.keyCode == 37) {
+                                    VideoPlayerInterface.iframeWindow.rtc.utils.track('scene-rewind');
                                     VideoPlayerInterface.iframeWindow.rtc.player.vars.currentTime -= 10;
                                     VideoPlayerInterface.iframeWindow.rtc.utils.track("keyboard.rewind", "newTime=" + rtc.player.vars.currentTime);
                                 } else {
+                                    VideoPlayerInterface.iframeWindow.rtc.utils.track('scene-ff');
                                     VideoPlayerInterface.iframeWindow.rtc.player.vars.currentTime += 10;
                                     VideoPlayerInterface.iframeWindow.rtc.utils.track("keyboard.fast-forward", "newTime=" + rtc.player.vars.currentTime);
                                 }
@@ -448,9 +454,11 @@ var KeyboardInputController = {
                         //If the user has pressed an arrow key twice, skip the section
                         if(keyEnd[e.keyCode] !== null) {
                             if(e.keyCode == 37 && currentDate.getTime() < keyEnd[37].getTime() + 1000) {
+                              VideoPlayerInterface.iframeWindow.rtc.utils.track('scene-restart');
                                 VideoPlayerInterface.iframeWindow.rtc.player.skipPrevious();
                                 VideoPlayerInterface.iframeWindow.rtc.utils.track("keyboard.skip-previous");
                             } else if(e.keyCode == 39 && currentDate.getTime() < keyEnd[39].getTime() + 1000) {
+                              VideoPlayerInterface.iframeWindow.rtc.utils.track('scene-skip');
                                 VideoPlayerInterface.iframeWindow.rtc.player.skipNext();
                                 VideoPlayerInterface.iframeWindow.rtc.utils.track("keyboard.skip-next");
                             }
@@ -1581,7 +1589,7 @@ var Timeline = {
                 var timeline_width = $('#jsTimelineContainer').width();
                 Timeline.setProgress((e.pageX - $('#jsTimelineProgress').offset().left) / timeline_width);
                 Timeline.updateInVideo();
-                console.log(Timeline.getStateFromProgress());
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("timeline-click",Timeline.getStateFromProgress());
             }
         },
 
@@ -1629,9 +1637,11 @@ var Timeline = {
          */
         playPauseButtonClick: function() {
             if (VideoPlayerInterface.isPlaying) {
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("scene-paused");
                 VideoPlayerInterface.actions.pause();
             } else {
                 VideoPlayerInterface.actions.play();
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("scene-unpaused");
             }
         },
 
@@ -1639,6 +1649,7 @@ var Timeline = {
          * Skip back to the last state in the video
          */
         skipBack: function() {
+            VideoPlayerInterface.iframeWindow.rtc.utils.track('scene-restart');
             VideoPlayerInterface.actions.skipBack();
         },
 
@@ -1646,6 +1657,7 @@ var Timeline = {
          * Skip forward to the next state in the video
          */
         skipForward: function() {
+            VideoPlayerInterface.iframeWindow.rtc.utils.track('scene-skip');
             VideoPlayerInterface.actions.skipForward();
         },
 
@@ -1804,7 +1816,7 @@ var VideoPlayerInterface = {
         unauthorized = !VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
         setTimeout(function(){
           console.log('2k');
-          console.log(VideoPlayerInterface.iframeWindow.rtc.player.vars);
+//          console.log(VideoPlayerInterface.iframeWindow.rtc.player.vars);
           if (!VideoPlayerInterface.isPlaying && unauthorized != true) {
               VideoPlayerInterface.actions.play();
               console.log("PLAYYYYYYYYYYYYYYYYY");
@@ -1863,6 +1875,9 @@ var VideoPlayerInterface = {
      */
     getStates: function() {
         VideoPlayerInterface.StateEngine = VideoPlayerInterface.iframeWindow.StateEngine;
+        if(VideoPlayerInterface.currentState != VideoPlayerInterface.iframeWindow.rtc.state.currentState()){
+          VideoPlayerInterface.iframeWindow.rtc.utils.track("new-state", VideoPlayerInterface.iframeWindow.rtc.state.currentState());
+        }
         VideoPlayerInterface.currentState = VideoPlayerInterface.iframeWindow.rtc.state.currentState();
     },
 
@@ -2146,9 +2161,11 @@ var VolumeSlider = {
                 // Store the volume before muting so we can revert back to the original value when we unmute
                 VolumeSlider.mutedVolume = VolumeSlider.getVolume();
                 VolumeSlider.setVolume(0);
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("scene-muted");
             } else {
                 // Revert back to the original volume value
                 VolumeSlider.setVolume(VolumeSlider.mutedVolume);
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("scene-unmuted");
             }
         },
 
@@ -2165,6 +2182,9 @@ var VolumeSlider = {
                     newVol = (pxFromLeftOfBar / widthOfBar);
 
                 VolumeSlider.setVolume(newVol);
+
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("volume-change", newVol);
+
             }
         },
 
