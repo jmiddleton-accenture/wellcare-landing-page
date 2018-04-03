@@ -383,11 +383,13 @@ var KeyboardInputController = {
                             VideoPlayerInterface.iframeWindow.rtc.player.controls.resume();
                         } else {
                             VideoPlayerInterface.iframeWindow.rtc.player.controls.pause();
-                            VideoPlayerInterface.iframeWindow.rtc.utils.track("scenepaused");
+                            VideoPlayerInterface.iframeWindow.rtc.utils.track("scene-paused");
                         }
 
-                        "keyboard.spacebar");
+                        VideoPlayerInterface.iframeWindow.rtc.utils.track("keyboard.spacebar");
                         break;
+
+
                     //Left and right arrow keys
                     case 37:
                     case 39:
