@@ -112,7 +112,7 @@ var Translations = {
             ]
         },
         {
-            "label": "Benefits",
+            "label": "Add'l Benefits",
             "states": [
                 {
                     "cardId": "2a42642f",
