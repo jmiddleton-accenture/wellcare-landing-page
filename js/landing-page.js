@@ -1381,7 +1381,7 @@ var Timeline = {
      * Show the replay button instead of play/pause once the video has ended
      */
     updateReplayButton: function(state) {
-        if(state=="END"){
+        if(Timeline.progress===1){
           $('#jsPlayPauseButton').hide();
           $('#jsReplayButton').show();
         }
@@ -1784,7 +1784,7 @@ var VideoPlayerInterface = {
                 Timeline.updatePlayPauseButton();
 
                 // Update replay button
-                Timeline.updateReplayButton(VideoPlayerInterface.currentState);
+                Timeline.updateReplayButton();
 
                 // Update resume splash screen
                 VideoPlayerInterface.toggleResumeSplash();
@@ -2000,7 +2000,7 @@ var VideoPlayerInterface = {
         replay: function() {
             CtaButtons.closeAllSideCards();
             VideoPlayerInterface.hideResumeSplash();
-            VideoPlayerInterface.iframeWindow.rtc.player.controls.replay();
+            VideoPlayerInterface.iframeWindow.rtc.player.replay();
         },
 
 
