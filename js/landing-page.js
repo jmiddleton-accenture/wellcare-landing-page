@@ -629,10 +629,34 @@ var LanguageSelector = {
          * Updates the page based on the translations loaded
          */
         $.getScript(langFileUrl, function loadTranslationsSuccess() {
-            LanguageSelector.currentLanguageObj = Translations;
+            LanguageSelector.currentLanguageObj = LanguageSelector.removeEmptyChapters(Translations);
             LanguageSelector.updateLanguage(langCode);
         });
     },
+
+
+    removeEmptyChapters: function(languageObj){
+
+      if(VideoPlayerInterface.iframeWindow.rtc && VideoPlayerInterface.iframeWindow.rtc.timeline.vars){
+
+        var newChapterSettings = [];
+        var oldChapterSettings = languageObj.ChapterSettings;
+        var videoChapters = VideoPlayerInterface.getVideoChapters();
+
+        for(var c = 0; c < oldChapterSettings.length; c++){
+          if(oldChapterSettings[c].states[0].cardId in videoChapters){
+            if(duration in videoChapters[oldChapterSettings[c].states[0].cardId] && videoChapters[oldChapterSettings[c].states[0].cardId.duration > 0){
+              newChapterSettings.push(oldChapterSettings[c]);
+            }
+          }
+        }
+
+        languageObj.ChapterSettings = newChapterSettings;
+
+      }
+
+      return languageObj;
+    }
 
     updateLanguage: function(langCode) {
         Timeline.render(LanguageSelector.currentLanguageObj.ChapterSettings);
