@@ -1775,7 +1775,7 @@ var VideoPlayerInterface = {
     checkChapters: function(){
       console.log('cc');
       console.log(VideoPlayerInterface.getVideoChapters());
-    }
+    },
 
     /**
      * Get the latest video data and update all affected landing page elements.
