@@ -1773,8 +1773,10 @@ var VideoPlayerInterface = {
     },
 
     checkChapters: function(){
-      console.log('cc');
-      console.log(VideoPlayerInterface.getVideoChapters());
+      if(VideoPlayerInterface.chaptersReady !== true && Object.keys(VideoPlayerInterface.getVideoChapters()).length > 0){
+        LanguageSelector.loadLanguageJSON('en');
+        VideoPlayerInterface.chaptersReady = true;
+      }
     },
 
     /**
