@@ -645,7 +645,7 @@ var LanguageSelector = {
 
         for(var c = 0; c < oldChapterSettings.length; c++){
           if(oldChapterSettings[c].states[0].cardId in videoChapters){
-            if(duration in videoChapters[oldChapterSettings[c].states[0].cardId] && videoChapters[oldChapterSettings[c].states[0].cardId.duration > 0){
+            if(duration in videoChapters[oldChapterSettings[c].states[0].cardId] && videoChapters[oldChapterSettings[c].states[0].cardId].duration > 0){
               newChapterSettings.push(oldChapterSettings[c]);
             }
           }
