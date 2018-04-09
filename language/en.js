@@ -70,7 +70,7 @@ var Translations = {
             "label": "Hello",
             "states": [
                 {
-                    "cardId": "62d57b2a",
+                    "cardId": "fc89fbc7",
                     "width": 10
                 }
             ]
