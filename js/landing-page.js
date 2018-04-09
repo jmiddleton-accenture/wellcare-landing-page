@@ -642,13 +642,21 @@ var LanguageSelector = {
         var newChapterSettings = [];
         var oldChapterSettings = languageObj.ChapterSettings;
         var videoChapters = VideoPlayerInterface.getVideoChapters();
+        var extraWidth = 0;
 
         for(var c = 0; c < oldChapterSettings.length; c++){
           if(oldChapterSettings[c].states[0].cardId in videoChapters){
             if("duration" in videoChapters[oldChapterSettings[c].states[0].cardId] && videoChapters[oldChapterSettings[c].states[0].cardId].duration > 0){
               newChapterSettings.push(oldChapterSettings[c]);
             }
+            else{
+              extraWidth += oldChapterSettings[c].states[0].width;
+            }
           }
+        }
+
+        for(var n = 0; n < extraWidth; n++){
+          newChapterSettings[n % newChapterSettings.length].states[0].width += 1;
         }
 
         languageObj.ChapterSettings = newChapterSettings;
