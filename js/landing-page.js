@@ -656,7 +656,7 @@ var LanguageSelector = {
       }
 
       return languageObj;
-    }
+    },
 
     updateLanguage: function(langCode) {
         Timeline.render(LanguageSelector.currentLanguageObj.ChapterSettings);
