@@ -1747,6 +1747,8 @@ var VideoPlayerInterface = {
 
     firstRun: true,
 
+    chaptersReady = false,
+
     /**
      * Initialise the video player interface.
      * This class is a proxy that handles all interaction with the video player itself
@@ -1778,6 +1780,15 @@ var VideoPlayerInterface = {
         try {
             if (VideoPlayerInterface.iframeWindow.rtc && VideoPlayerInterface.iframeWindow.rtc.player && VideoPlayerInterface.iframeWindow.rtc.player.playersReady()) {
                 // Wait until the player is ready to initalise the quality selector
+
+                if(!VideoPlayerInterface.chaptersReady){
+                  var startingLanguage = LanguageSelector.getStartingLanguage();
+                  LanguageSelector.loadLanguageJSON(startingLanguage);
+                  LanguageSelector.setLanguage(startingLanguage);
+                  VideoPlayerInterface.chaptersReady = true;
+                }
+
+
                 if (!QualitySelector.loaded) {
                     QualitySelector.initialise();
                 }
