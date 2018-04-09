@@ -532,6 +532,10 @@ sub {
     text-align: center;
 }
 
+.timeline__button--replay{
+  display: none;
+}
+
 .timeline-volume {
     z-index: 1;
     float: left;
@@ -543,7 +547,6 @@ sub {
 .timeline--no-volume .timeline__button--volume {
     display: none;
 }
-
 .fullscreen .timeline-volume {
     width: calc(100% - 165px);
 }
