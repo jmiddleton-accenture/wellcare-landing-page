@@ -1782,9 +1782,7 @@ var VideoPlayerInterface = {
                 // Wait until the player is ready to initalise the quality selector
 
                 if(!VideoPlayerInterface.chaptersReady){
-                  var startingLanguage = LanguageSelector.getStartingLanguage();
-                  LanguageSelector.loadLanguageJSON(startingLanguage);
-                  LanguageSelector.setLanguage(startingLanguage);
+                  LanguageSelector.loadLanguageJSON('en');
                   VideoPlayerInterface.chaptersReady = true;
                 }
 
