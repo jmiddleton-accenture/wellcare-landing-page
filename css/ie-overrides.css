@@ -51,6 +51,10 @@
     background-position-x: 11.538%;
 }
 
+.lteie8 .timeline__button-icon--replay {
+    background-position-x: 15.385%
+}
+
 .lteie8 .timeline__button-icon--settings {
     background-position-x: 19.231%;
 }
@@ -124,7 +128,8 @@
     width: 38px;
 }
 
-.lteie8 .timeline__button--play-pause {
+.lteie8 .timeline__button--play-pause,
+.lteie8 .timeline__button--replay {
     width: 34px;
 }
 
@@ -134,7 +139,8 @@
 }
 
 .lteie8 .timeline__button-icon--play,
-.lteie8 .timeline__button-icon--pause {
+.lteie8 .timeline__button-icon--pause,
+.lteie8 .timeline__button-icon--replay {
     width: 30px;
     height: 30px;
 }
