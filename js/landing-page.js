@@ -1772,6 +1772,11 @@ var VideoPlayerInterface = {
 
     },
 
+    checkChapters: function(){
+      console.log('cc');
+      console.log(VideoPlayerInterface.getVideoChapters());
+    }
+
     /**
      * Get the latest video data and update all affected landing page elements.
      * This function fires at least once every second.
@@ -1781,11 +1786,7 @@ var VideoPlayerInterface = {
             if (VideoPlayerInterface.iframeWindow.rtc && VideoPlayerInterface.iframeWindow.rtc.player && VideoPlayerInterface.iframeWindow.rtc.player.playersReady()) {
                 // Wait until the player is ready to initalise the quality selector
 
-                if(!VideoPlayerInterface.chaptersReady){
-                  LanguageSelector.loadLanguageJSON('en');
-                  VideoPlayerInterface.chaptersReady = true;
-                }
-
+                VideoPlayerInterface.checkChapters();
 
                 if (!QualitySelector.loaded) {
                     QualitySelector.initialise();
