@@ -1747,7 +1747,7 @@ var VideoPlayerInterface = {
 
     firstRun: true,
 
-    chaptersReady = false,
+    chaptersReady: false,
 
     /**
      * Initialise the video player interface.
