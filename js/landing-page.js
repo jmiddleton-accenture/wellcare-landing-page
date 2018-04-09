@@ -1378,6 +1378,20 @@ var Timeline = {
     },
 
     /**
+     * Show the replay button instead of play/pause once the video has ended
+     */
+    updateReplayButton: function(state) {
+        if(state=="END"){
+          $('#jsPlayPauseButton').hide();
+          $('#jsReplayButton').show();
+        }
+        else{
+          $('#jsReplayButton').hide();
+          $('#jsPlayPauseButton').show();
+        }
+    },
+
+    /**
      * Remove the timeline cover element that blocks interaction before the video is loaded
      */
     enableTimelineIfNecessary: function() {
@@ -1558,6 +1572,8 @@ var Timeline = {
 
             $('#jsPlayPauseButton').click(Timeline.events.playPauseButtonClick);
 
+            $('#jsReplayButton').click(Timeline.events.replayButtonClick);
+
             $('#jsSkipBackButton').click(Timeline.events.skipBack);
 
             $('#jsSkipForwardButton').click(Timeline.events.skipForward);
@@ -1646,6 +1662,14 @@ var Timeline = {
                 VideoPlayerInterface.iframeWindow.rtc.utils.track("scene-unpaused");
             }
         },
+
+        /**
+         * Replay the video when the replay button is clicked
+         */
+        replayButtonClick: function() {
+            VideoPlayerInterface.actions.replay();
+        },
+
 
         /**
          * Skip back to the last state in the video
@@ -1758,6 +1782,9 @@ var VideoPlayerInterface = {
 
                 // Update play pause
                 Timeline.updatePlayPauseButton();
+
+                // Update replay button
+                Timeline.updateReplayButton(VideoPlayerInterface.currentState);
 
                 // Update resume splash screen
                 VideoPlayerInterface.toggleResumeSplash();
@@ -1969,6 +1996,13 @@ var VideoPlayerInterface = {
                 VideoPlayerInterface.showResumeSplash();
             }
         },
+
+        replay: function() {
+            CtaButtons.closeAllSideCards();
+            VideoPlayerInterface.hideResumeSplash();
+            VideoPlayerInterface.iframeWindow.rtc.player.controls.replay();
+        },
+
 
         skipForward: function(currentState) {
             CtaButtons.closeAllSideCards();
