@@ -1898,7 +1898,7 @@ var VideoPlayerInterface = {
 
          brandName = brandNameL;
 
-         console.log("uBL:"+LanguageSelector.currentLanguageCode);
+         LanguageSelector.loadLanguageJSON(LanguageSelector.currentLanguageCode);
        }
      },
 
