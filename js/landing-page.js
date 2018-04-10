@@ -1,7 +1,5 @@
 var url = window.location.hostname.toLowerCase();
 var brandName = "";
-var unauthorized = true;
-
 
 if(url.indexOf("ohana")>-1){
   brandName = "ohana";
@@ -1780,7 +1778,6 @@ var VideoPlayerInterface = {
     initialise: function() {
         try {
             VideoPlayerInterface.iframeWindow = document.getElementById("videoPlayerIframe").contentWindow;
-    //        VideoPlayerInterface.removeCapsFromPurl();
             VideoPlayerInterface.updateFromVideo();
             VideoPlayerInterface.updateInterval = setInterval(function() {
                 VideoPlayerInterface.updateFromVideo();
@@ -1902,34 +1899,6 @@ var VideoPlayerInterface = {
        }
      },
 
-    checkAutoplayAfterAuthorization: function(){
-      if(unauthorized == VideoPlayerInterface.RTCVisit.videoVisitData['authorized']){
-        unauthorized = !VideoPlayerInterface.RTCVisit.videoVisitData['authorized'];
-        setTimeout(function(){
-          console.log('2k');
-//          console.log(VideoPlayerInterface.iframeWindow.rtc.player.vars);
-          if (!VideoPlayerInterface.isPlaying && unauthorized != true) {
-              VideoPlayerInterface.actions.play();
-              console.log("PLAYYYYYYYYYYYYYYYYY");
-          }
-        },2000);
-      }
-    },
-
-/*
-    removeCapsFromPurl: function(){
-      console.log("removeCapsFromPurl");
-
-      if (document.getElementById('videoPlayerIframe') != null) {
-          var videoUrl = document.getElementById('videoPlayerIframe').src;
-          var purlmatch = videoUrl.match( /&uid=(.*?)&/ );
-          if(purlmatch && purlmatch[1].toLowerCase() !== purlmatch[1]){
-            document.getElementById('videoPlayerIframe').src = videoUrl.replace( /&uid=(.*?)&/, "&uid="+purlmatch[1].toLowerCase()+"&" );
-          }
-      }
-
-    },
-*/
     updatePreparedForName: function() {
         var preparedForText = LanguageSelector.getTextByKey("PreparedForText");
         var nameProperty = $("#jsPreparedForName").data("dict-name");
@@ -1955,10 +1924,7 @@ var VideoPlayerInterface = {
       if($('#jsFooterLogo').hasClass("preprod") || $('#jsFooterLogo').hasClass("production")){
         VideoPlayerInterface.updateBrandLogo();
       }
-      if(unauthorized && VideoPlayerInterface.currentState =="62d57b2a"){
-        VideoPlayerInterface.checkAutoplayAfterAuthorization();
-      }
-      console.log('x(un-) '+unauthorized + ' y ' + VideoPlayerInterface.RTCVisit.videoVisitData['authorized'] +' z '+VideoPlayerInterface.isPlaying + ' q ' + VideoPlayerInterface.currentState);
+//      console.log(VideoPlayerInterface.isPlaying + ' ~ ' + VideoPlayerInterface.currentState);
     },
 
     /**
@@ -1980,7 +1946,7 @@ var VideoPlayerInterface = {
             if (VideoPlayerInterface.iframeWindow.rtc.player.video.status().srcSet) {
                 return true;
             }
-        } catch (ex) {
+          } catch (ex) {
         }
 
         return false;
