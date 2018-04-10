@@ -2062,7 +2062,7 @@ var VideoPlayerInterface = {
         replay: function() {
             CtaButtons.closeAllSideCards();
             VideoPlayerInterface.hideResumeSplash();
-            VideoPlayerInterface.iframeWindow.rtc.player.gotoState(LanguageSelector.currentLanguageObj.ChapterSettings[0].states[0].cardId);
+            VideoPlayerInterface.iframeWindow.rtc.timeline.gotoState(LanguageSelector.currentLanguageObj.ChapterSettings[0].states[0].cardId);
         },
 
 
