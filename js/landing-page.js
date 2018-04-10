@@ -1,4 +1,4 @@
-var url = window.location.hostname;
+var url = window.location.hostname.toLowerCase();
 var brandName = "";
 var unauthorized = true;
 
@@ -7,7 +7,7 @@ if(url.indexOf("ohana")>-1){
   brandName = "ohana";
   brandNameProper = "Ohana";
 }
-else if(url.indexOf("missouri")>-1){
+else if(url.indexOf("mocare")>-1){
   brandName = "missouricare";
   brandNameProper = "Missouri Care";
 }
