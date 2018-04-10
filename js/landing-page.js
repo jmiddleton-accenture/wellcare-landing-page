@@ -629,9 +629,35 @@ var LanguageSelector = {
          * Updates the page based on the translations loaded
          */
         $.getScript(langFileUrl, function loadTranslationsSuccess() {
-            LanguageSelector.currentLanguageObj = LanguageSelector.removeEmptyChapters(Translations);
+            LanguageSelector.currentLanguageObj = LanguageSelector.filterMOChapters(Translations);
             LanguageSelector.updateLanguage(langCode);
         });
+    },
+
+
+    filterMOChapters: function(languageObj){
+
+      if(brandName=="missouricare"){
+        var newChapterSettings = [];
+        var extraWidth = 0;
+
+        for(var c = 0; c < languageObj.ChapterSettings.length; c++){
+          if(languageObj.ChapterSettings[c].states[0].cardId != "73c8fd3b"){
+            newChapterSettings.push(languageObj.ChapterSettings[c]);
+          }else {
+            extraWidth += languageObj.ChapterSettings[c].states[0].width;
+          }
+
+        }
+
+        for(var n = 0; n < extraWidth; n++){
+          newChapterSettings[n % newChapterSettings.length].states[0].width += 1;
+        }
+
+        languageObj.ChapterSettings = newChapterSettings;
+      }
+
+      return languageObj;
     },
 
 
@@ -1747,8 +1773,6 @@ var VideoPlayerInterface = {
 
     firstRun: true,
 
-    chaptersReady: false,
-
     /**
      * Initialise the video player interface.
      * This class is a proxy that handles all interaction with the video player itself
@@ -1772,13 +1796,6 @@ var VideoPlayerInterface = {
 
     },
 
-    checkChapters: function(){
-      if(VideoPlayerInterface.chaptersReady !== true && Object.keys(VideoPlayerInterface.getVideoChapters()).length > 0){
-        LanguageSelector.loadLanguageJSON('en');
-        VideoPlayerInterface.chaptersReady = true;
-      }
-    },
-
     /**
      * Get the latest video data and update all affected landing page elements.
      * This function fires at least once every second.
@@ -1786,10 +1803,7 @@ var VideoPlayerInterface = {
     updateFromVideo: function() {
         try {
             if (VideoPlayerInterface.iframeWindow.rtc && VideoPlayerInterface.iframeWindow.rtc.player && VideoPlayerInterface.iframeWindow.rtc.player.playersReady()) {
-                // Wait until the player is ready to initalise the quality selector
-
-                VideoPlayerInterface.checkChapters();
-
+                // Wait until the player is ready to initalise the quality selector\
                 if (!QualitySelector.loaded) {
                     QualitySelector.initialise();
                 }
@@ -1881,6 +1895,10 @@ var VideoPlayerInterface = {
          else{
            $(".body").addClass("blue");
          }
+
+         brandName = brandNameL;
+
+         console.log("uBL:"+LanguageSelector.currentLanguageCode);
        }
      },
 
