@@ -17,15 +17,6 @@ else if(url.indexOf("wellcare")>-1){
   brandName = "wellcare";
   brandNameProper = "WellCare";
 }
-else if(url.indexOf("preprod")>-1){
-  brandName = "preprod";
-  brandNameProper = "Preprod";
-}
-else if(url.indexOf("prod")>-1){
-  brandName = "production";
-  brandNameProper = "Production";
-}
-
 
 if(brandName){
   document.title = document.title + " | " + brandNameProper;
@@ -1874,26 +1865,40 @@ var VideoPlayerInterface = {
      * Gets the name property from data-dictionary. Only needed when on a non-branded URL
      */
 
-     updateBrandLogo: function(){
-       var brandNameL = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
+     updateBrandName: function(){
+       var brandNameU = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
 
-       if(brandNameL && !$("#jsFooterLogo").hasClass(brandNameL)){
-         $("#jsFooterLogo").addClass(brandNameL);
+       if(brandNameU != brandName){
+
+         if(brandNameU == "ohana"){
+           document.title = document.title + " | ‘Ohana";
+         }
+         else if(brandNameU == "missouricare"){
+           document.title = document.title + " | Missouri Care";
+         }
+         else if(brandNameU == "easychoice"){
+           document.title = document.title + " | Easy Choice";
+         }
+         else if(brandNameU == "wellcare"){
+           document.title = document.title + " | WellCare";
+         }
+
+         $("#jsFooterLogo").addClass(brandNameU);
 
          var imageL = new Image();
          imageL.onload = function () {
-           $("#jsFooterLogo").attr({"src":"./images/logos/"+brandNameL+".png"});
+           $("#jsFooterLogo").attr({"src":"./images/logos/"+brandNameU+".png"});
          }
-         imageL.src = "./images/logos/"+brandNameL+".png";
+         imageL.src = "./images/logos/"+brandNameU+".png";
 
-         if(brandNameL=="wellcare"){
+         if(brandNameU=="wellcare"){
            $(".body").addClass("orange");
          }
          else{
            $(".body").addClass("blue");
          }
 
-         brandName = brandNameL;
+         brandName = brandNameU;
 
          LanguageSelector.loadLanguageJSON(LanguageSelector.currentLanguageCode);
        }
@@ -1921,9 +1926,9 @@ var VideoPlayerInterface = {
     getVisitData: function() {
         VideoPlayerInterface.RTCVisit = VideoPlayerInterface.iframeWindow.RTCVisit;
 //        VideoPlayerInterface.updatePreparedForName();
-      if($('#jsFooterLogo').hasClass("preprod") || $('#jsFooterLogo').hasClass("production")){
-        VideoPlayerInterface.updateBrandLogo();
-      }
+        if(brandName==""){
+          VideoPlayerInterface.updateBrandName();
+        }
 //      console.log(VideoPlayerInterface.isPlaying + ' ~ ' + VideoPlayerInterface.currentState);
     },
 
