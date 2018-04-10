@@ -1868,7 +1868,7 @@ var VideoPlayerInterface = {
      updateBrandName: function(){
        var brandNameU = VideoPlayerInterface.RTCVisit.videoVisitData['company_name'];
 
-       if(brandNameU != brandName){
+       if(brandNameU != brandName && brandNameU !== undefined){
 
          if(brandNameU == "ohana"){
            document.title = document.title + " | ‘Ohana";
