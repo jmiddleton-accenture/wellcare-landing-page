@@ -2248,11 +2248,11 @@ var VolumeSlider = {
             if (!volumeBall.is(e.target) && volumeBall.has(e.target).length === 0) {
                 var widthOfBar = volumeBar.innerWidth(),
                     pxFromLeftOfBar = e.pageX - volumeBar.offset().left,
-                    newVol = (pxFromLeftOfBar / widthOfBar);
+                    newVol = (pxFromLefFtOfBar / widthOfBar);
 
                 VolumeSlider.setVolume(newVol);
 
-                VideoPlayerInterface.iframeWindow.rtc.utils.track("volume-change", newVol);
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("volume-change", newVol.tofixed(2));
 
             }
         },
@@ -2265,6 +2265,7 @@ var VolumeSlider = {
             if (VolumeSlider.events.isDragging) {
                 e.preventDefault();
                 VolumeSlider.events.isDragging = false;
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("volume-change", VolumeSlider.getVolume().tofixed(2));
             }
         },
 
