@@ -2252,7 +2252,7 @@ var VolumeSlider = {
 
                 VolumeSlider.setVolume(newVol);
 
-                VideoPlayerInterface.iframeWindow.rtc.utils.track("volume-change", newVol.tofixed(2));
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("volume-change", newVol.toFixed(2));
 
             }
         },
@@ -2265,7 +2265,7 @@ var VolumeSlider = {
             if (VolumeSlider.events.isDragging) {
                 e.preventDefault();
                 VolumeSlider.events.isDragging = false;
-                VideoPlayerInterface.iframeWindow.rtc.utils.track("volume-change", VolumeSlider.getVolume().tofixed(2));
+                VideoPlayerInterface.iframeWindow.rtc.utils.track("volume-change", VolumeSlider.getVolume().toFixed(2));
             }
         },
 
