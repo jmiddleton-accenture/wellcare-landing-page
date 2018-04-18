@@ -1901,7 +1901,7 @@ var VideoPlayerInterface = {
 
          brandName = brandNameU;
 
-         LanguageSelector.loadLanguageJSON(LanguageSelector.currentLanguageCode);
+         Timeline.render(LanguageSelector.filterMOChapters(LanguageSelector.currentLanguageObj.ChapterSettings));
        }
      },
 
