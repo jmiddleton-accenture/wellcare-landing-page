@@ -618,23 +618,23 @@ var LanguageSelector = {
          * Updates the page based on the translations loaded
          */
         $.getScript(langFileUrl, function loadTranslationsSuccess() {
-            LanguageSelector.currentLanguageObj = LanguageSelector.filterMOChapters(Translations);
+            LanguageSelector.currentLanguageObj = Translations;
             LanguageSelector.updateLanguage(langCode);
         });
     },
 
 
-    filterMOChapters: function(languageObj){
+    filterMOChapters: function(ChapterSettings){
 
       if(brandName=="missouricare"){
         var newChapterSettings = [];
         var extraWidth = 0;
 
-        for(var c = 0; c < languageObj.ChapterSettings.length; c++){
-          if(languageObj.ChapterSettings[c].states[0].cardId != "73c8fd3b"){
-            newChapterSettings.push(languageObj.ChapterSettings[c]);
+        for(var c = 0; c < ChapterSettings.length; c++){
+          if(ChapterSettings[c].states[0].cardId != "73c8fd3b"){
+            newChapterSettings.push(ChapterSettings[c]);
           }else {
-            extraWidth += languageObj.ChapterSettings[c].states[0].width;
+            extraWidth += ChapterSettings[c].states[0].width;
           }
 
         }
@@ -643,10 +643,11 @@ var LanguageSelector = {
           newChapterSettings[n % newChapterSettings.length].states[0].width += 1;
         }
 
-        languageObj.ChapterSettings = newChapterSettings;
+        return newChapterSettings;
       }
-
-      return languageObj;
+      else{
+        return ChapterSettings;
+      }
     },
 
 
@@ -682,7 +683,7 @@ var LanguageSelector = {
     },
 
     updateLanguage: function(langCode) {
-        Timeline.render(LanguageSelector.currentLanguageObj.ChapterSettings);
+        Timeline.render(LanguageSelector.filterMOChapters(LanguageSelector.currentLanguageObj.ChapterSettings));
         CtaButtons.render(LanguageSelector.currentLanguageObj.CtaButtonSettings);
         Promos.render(LanguageSelector.currentLanguageObj.PromoSettings);
 
